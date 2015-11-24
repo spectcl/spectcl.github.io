@@ -54,10 +54,10 @@ paused again when we match.  We also watch this stream for eof.</p>
 After one of the above conditions is met, the provided callback will be called.</li>
 </ol>
 </dd>
-<dt><a href="#send">send(data)</a> ⇒ <code>undefined</code></dt>
+<dt><a href="#send">send(data, cb)</a> ⇒ <code>undefined</code></dt>
 <dd><p>Sends data to the spawned process</p>
 </dd>
-<dt><a href="#sendEof">sendEof()</a> ⇒ <code>undefined</code></dt>
+<dt><a href="#sendEof">sendEof(cb)</a> ⇒ <code>undefined</code></dt>
 <dd><p>Destroy the spawned process&#39; stdin stream.
 Useful when working with apps that use inquirer.</p>
 </dd>
@@ -183,7 +183,7 @@ After one of the above conditions is met, the provided callback will be called.
 spectcl.expect([/#/, function(){ // called when we match on /#/ }])
 ```
 <a name="send"></a>
-## send(data) ⇒ <code>undefined</code>
+## send(data, cb) ⇒ <code>undefined</code>
 Sends data to the spawned process
 
 **Kind**: global function  
@@ -191,13 +191,19 @@ Sends data to the spawned process
 | Param | Type | Description |
 | --- | --- | --- |
 | data | <code>string</code> | Data to send to the current spawned process. |
+| cb | <code>[sendCallback](#Spectcl..sendCallback)</code> | Called once the send is complete. |
 
 <a name="sendEof"></a>
-## sendEof() ⇒ <code>undefined</code>
+## sendEof(cb) ⇒ <code>undefined</code>
 Destroy the spawned process' stdin stream.
 Useful when working with apps that use inquirer.
 
 **Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| cb | <code>[sendEofCallback](#Spectcl..sendEofCallback)</code> | Called once EOF is sent. |
+
 <a name="on"></a>
 ## on() ⇒ <code>undefined</code>
 Spectcl is an emitter.
